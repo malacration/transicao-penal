@@ -1,0 +1,99 @@
+<h1>Elaborar Transação Penal</h1>
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Busca Processual</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form">
+        <div class="box-body">
+        <div class="form-group">
+            <div class="input-group input-group-sm">
+                <span class="input-group-btn">
+                    <button (click)="buscaProcesso()" class="btn btn-primary">Buscar</button>
+                </span>
+                <input type="text" class="form-control" name="numeroProcesso" [(ngModel)]="numeroProcesso" placeholder="Numero do Processo">
+            </div>
+        </div>
+        </div>
+    </form>
+</div>
+
+<hr>
+
+<div *ngIf="processo || processo != null" class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Processo: {{processo?.numeroProcesso}}</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form role="form">
+        <div class="box-body">
+        <div class="form-group">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Dados da Transição</a></li>
+                    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Revisao da Minuta Processual</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <form>
+                            <div class="form-group">
+                                <label for="valor">Valor</label>
+                                <input [(ngModel)]="modeloVariaveis.valor" type="number" min="0.00" step="0.01" class="form-control" name="valor" placeholder="Valor">
+                            </div>
+                            <div class="form-group">
+                                <label for="parcelas">Parcelas</label>
+                                <input [(ngModel)]="modeloVariaveis.parcelas" type="number" min="1" step="0" class="form-control" name="parcelas" placeholder="Numero Parcelas">
+                            </div>
+                            <div class="form-group">
+                                    <label>Data de início para pagamento:</label>
+                    
+                                    <div class="input-group date">
+                                      <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                      </div>
+                                      <input (ngModel)="modeloVariaveis.dataPagamento" type="date" class="form-control pull-right" id="datepicker">
+                                    </div>
+                                    <!-- /.input group -->
+                                  </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane" id="tab_2">
+                        <div class="form-group">
+                            <select class="form-control" name="modelo" (change)="selecionaModelo($event.target.value)">
+                                <option value="" disabled selected>Selecione o Modelo...</option>
+                                <option *ngFor="let modeloDoc of modeloDocumentos" [value]="modeloDoc?.id">{{modeloDoc?.descricao}}</option>
+                            </select>
+                        </div>
+                        <form role="form" #myForm="ngForm" accept-charset="UTF-8" novalidate>
+                            <div class="form-group has-feedback" 
+                                    [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+                                <ckeditor [(ngModel)]="mycontent" 
+                                        #myckeditor="ngModel"
+                                        name="myckeditor"
+                                        required
+                                        [config]="ckeConfig" 
+                                        debounce="500" 
+                                        (paste)="onPaste($event)"
+                                        (change)="onChange($event)">
+                                </ckeditor>
+                                <div *ngIf="myckeditor.invalid && myckeditor.touched" class="help-block">Required field.</div>
+                            </div>
+                            <button [disabled]="myForm.invalid" class="btn btn-primary" (click)="salvar()">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+</div>
+<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+  </script>

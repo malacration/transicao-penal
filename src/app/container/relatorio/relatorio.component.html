@@ -1,0 +1,31 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Relatório</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+        <tbody><tr>
+            <th></th>
+            <th>Valor da Parcela</th>
+            <th>Data Vencimento</th>
+            <th>Status</th>
+        </tr>
+        <ng-container *ngFor="let relatorio of relatorios">
+            <tr style="background: #bbb5b5">
+                <td colspan="4">Processo: 7019851-89.2015.8.22.0001</td>
+            </tr>
+            <!-- toLocaleDateString() -->
+            <ng-container *ngFor="let parcela of relatorio.parcelas">
+                <tr>
+                    <td>#</td>
+                    <td>R$: {{relatorio.valorParcela}}</td>
+                    <td>{{parcela.toLocaleDateString()}}</td>
+                    <td>Aguardando Pagamento</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        </tbody></table>
+    </div>
+    <!-- /.box-body -->
+</div>

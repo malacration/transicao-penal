@@ -1,0 +1,61 @@
+[ {
+    "id": 1,
+    "numeroProcesso" : "7019851-89.2015.8.22.0001",
+    "orgaoJulgadorNome" : "1º Juizado Especial Criminal - Porto Velho",
+    "orgaoJultadorEndereco" : "Rua José Camacho, nº 585 - Bairro Olaria Cep 76801-330 - Porto Velho, Rondônia",
+    "autorFato" : "Han Solo",
+    "cpfAutorFato" : "000.423.010-84",
+    "partes" : [
+      {
+        "id": 1,
+        "nome": "partes1",
+        "cpf": "1111111111"
+      },
+      {
+        "id": 2,
+        "nome": "partes2",
+        "cpf": "222222222222"
+      }],
+    "jusDireito" : "Luiz Mouro"
+  },
+  {
+    "id": 1,
+    "numeroProcesso" : "7019851-89.2015.8.22.0002",
+    "orgaoJulgadorNome" : "1º Juizado Especial Criminal - Porto Velho",
+    "orgaoJultadorEndereco" : "Rua José Camacho, nº 585 - Bairro Olaria Cep 76801-330 - Porto Velho, Rondônia",
+    "autorFato" : "Han Solo",
+    "cpfAutorFato" : "000.423.010-84",
+    "partes" : [
+      {
+        "id": 1,
+        "nome": "partes1",
+        "cpf": "1111111111"
+      },
+      {
+        "id": 2,
+        "nome": "partes2",
+        "cpf": "222222222222"
+      }],
+    "jusDireito" : "Luiz Mouro"
+  },
+  {
+    "id": 2,
+    "numeroProcesso" : "666",
+    "orgaoJulgadorNome" : "1º Juizado Especial Criminal - Porto Velho",
+    "orgaoJultadorEndereco" : "Rua José Camacho, nº 585 - Bairro Olaria Cep 76801-330 - Porto Velho, Rondônia",
+    "autorFato" : "Master Chief",
+    "cpfAutorFato" : "000.423.010-84",
+    "partes" : [
+      {
+        "id": 3,
+        "nome": "partes3",
+        "cpf": "333333333333"
+      },
+      {
+        "id": 4,
+        "nome": "partes4",
+        "cpf": "44444444444"
+      }],
+    "jusDireito" : "Luiz Moro"
+  }
+]
